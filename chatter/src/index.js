@@ -6,17 +6,20 @@ import reportWebVitals from "./reportWebVitals";
 import { ChakraProvider } from "@chakra-ui/react";
 import ChatProvider from "./Context/ChatProvider";
 import { BrowserRouter } from "react-router-dom";
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <ChakraProvider>
-      <BrowserRouter>
-        <ChatProvider>
-          <App />
-        </ChatProvider>
-      </BrowserRouter>
-    </ChakraProvider>
+    <GoogleOAuthProvider clientId="1060906459474-1qgjclmpk74u5hh2misi3stb7883s3fm.apps.googleusercontent.com">
+      <ChakraProvider>
+        <BrowserRouter>
+          <ChatProvider>
+            <App />
+          </ChatProvider>
+        </BrowserRouter>
+      </ChakraProvider>
+    </GoogleOAuthProvider>;
   </React.StrictMode>
 );
 
